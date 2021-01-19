@@ -1,9 +1,12 @@
-<h1>Posts#new</h1>
+<h1 class=" row justify-content-center">Create Post</h1>
 
 
-
+<div class="container">
+	
 <%= form_with model: @model do |f| %>
 <%= f.text_field :title, placeholder: "Post title here" %><br>
  <%= f.label :body %><br>
  <%= f.rich_text_area :body %>
+ <%= f.submit "Create Post", class: "btn btn-primary" %>
  <% end %>
+</div>

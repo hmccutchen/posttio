@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
-  def index
-  end
+            
+
 
   def show
   end
@@ -9,5 +9,16 @@ class RepliesController < ApplicationController
   end
 
   def edit
+  end
+
+
+  private
+
+  def reply_params
+  	params.require(:reply).permit(:name, :body)
+  end
+
+  def load_model
+  	@model = Reply.find(params[:id])
   end
 end
