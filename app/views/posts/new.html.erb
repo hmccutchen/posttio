@@ -1,2 +1,9 @@
 <h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+
+
+
+<%= form_with model: @model do |f| %>
+<%= f.text_field :title, placeholder: "Post title here" %><br>
+ <%= f.label :body %><br>
+ <%= f.rich_text_area :body %>
+ <% end %>
