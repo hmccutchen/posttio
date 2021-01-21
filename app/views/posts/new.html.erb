@@ -1,12 +1,21 @@
+ <div class="row justify-content-center">
+ 	
+ <%= link_to "Home", posts_path %>
+ </div>
 <h1 class=" row justify-content-center">Create Post</h1>
+
 
 
 <div class="container">
 	
 <%= form_with model: @model do |f| %>
 <%= f.text_field :title, placeholder: "Post title here" %><br>
- <%= f.label :body %><br>
- <%= f.rich_text_area :body %>
+ 
+ <%= f.rich_text_area :body, placeholder: "message body" %>
+
+
+  
  <%= f.submit "Create Post", class: "btn btn-primary" %>
  <% end %>
 </div>
+

@@ -3,9 +3,12 @@ class PostsController < ApplicationController
 
   def index
   	@model = Post.all
+
   end
 
   def show
+    @reply = Reply.new
+
   end
 
   def edit
@@ -22,15 +25,24 @@ class PostsController < ApplicationController
    	end
   end
 
+  def update
+  end
+
   def destroy
+  	@model.destroy
+  	if @model.destroy
+  		redirect_to posts_path
+  	end
   end
 
   private
 
 
   def post_params
-  	params.require(:post).permit(:title, :body, reply_attributes:[:name, :body, :_destroy, :id])
+  	params.require(:post).permit(:title, :body)
   end
+  
+
 
 
   def load_post

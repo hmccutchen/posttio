@@ -1,9 +1,36 @@
-<h1>Posts#show</h1>
 
+ <div class="row justify-content-center">
+ 	
+ <%= link_to "Home", posts_path %>
+ </div>
+<div class="row justify-content-center">
+<h1>Post</h1>
+ 
 
-<div class="container">
-	
-
-<h2><%= @model.title %></h2>
-<%= @model.body %>
 </div>
+
+<div class="container post-container">
+	
+<div class="post-body">
+	
+<h2><%= @model.title %></h2>
+ <span><%= @model.body %></span>
+</div>
+
+  
+
+  <% @model.replies.reverse.each do |reply| %>
+  <p>Name: <%= reply.name %><p>
+  <p>Body: <%= reply.body %></p><hr>
+  <% end %>
+
+<%= render 'replies/form', post: @model %>
+
+
+
+<div class="row justify-content-end">
+	
+<%= link_to "delete post", post_path(@model), method: :delete , class: "btn btn-danger"%>
+</div>
+</div>
+

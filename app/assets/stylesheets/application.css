@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.post-body{
+  margin-bottom: 60px;
+}
