@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
 	 before_action :load_post, only: [:show, :edit, :update, :destroy]
-
+   
   def index
   	@model = Post.all
 
@@ -13,13 +14,17 @@ class PostsController < ApplicationController
 
   def edit
   end
+  
+  def user_posts
+    current_user_posts
+  end
 
   def new 
   	@model = Post.new
   end
   
   def create
-  	@model = Post.new(post_params)
+  	@model = current_user.posts.new(post_params)
    if @model.save 
    	 redirect_to posts_path
    	end
@@ -42,7 +47,9 @@ class PostsController < ApplicationController
   	params.require(:post).permit(:title, :body)
   end
   
-
+ def current_user_posts
+   @model = current_user.posts
+ end
 
 
   def load_post

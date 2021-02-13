@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="row">
+            <% @model.each do |user_post|%>
+              <div class="col-lg-3 col-md-3">
+                  <div class="card">
+                      
+                  <div class="card-header">
+                       <%= user_post.title %>
+                  </div>
+                </div>
+             </div>
+            <% end %>
+    </div>
+</div>
