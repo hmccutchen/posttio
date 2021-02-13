@@ -1,6 +1,7 @@
 
-   
-   <p>Name: <%=@reply.name %></p>
-    <p>Body: <%= @reply.body %></p> <hr>
-    
-  
+   <div class="container">
+  <div class="card-header mb-3">
+    <p> <%= @reply.body %></p>
+    <span class="font-italic"> <%=@reply.name %></span>
+  </div>
+  </div>

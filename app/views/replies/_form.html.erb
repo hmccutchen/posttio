@@ -3,8 +3,8 @@
 <div class="container">
 	
 <%=form_for([post, @reply], remote: true)   do |form| %>
-<%= form.text_field :name, placeholder: "Reply name" %>
- <%= form.rich_text_area :body %>
- <%= form.submit "submit" ,class:"btn btn-primary"%>
+ <!--<p class="input-group"><%#= form.text_field :name, placeholder: "Reply name" %></p>-->
+ <%= form.rich_text_area :body, required: true %>
+ <%= form.submit "submit" ,class:"btn btn-outline-primary"%>
  <% end %>
 </div>

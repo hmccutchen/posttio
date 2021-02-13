@@ -1,36 +1,42 @@
 
- <div class="row justify-content-center">
- 	
- <%= link_to "Home", posts_path %>
- </div>
-<div class="row justify-content-center">
-<h1>Post</h1>
+<div class="d-flex justify-content-center">
+<h1><%= @model.title.capitalize %></h1>
+</div>
+<div class="card-header container mb-2">
  
 
+<span class="d-flex justify-content-center"><%= @model.body %></span>
+ <span class="font-italic d-flex justify-content-end">- <%= @model.user.email %> </span>
 </div>
+
 
 <div class="container post-container">
 	
 <div class="post-body">
 	
-<h2><%= @model.title %></h2>
- <span><%= @model.body %></span>
 </div>
 
   
+ <div class="container">
+  
 
   <% @model.replies.reverse.each do |reply| %>
-  <p>Name: <%= reply.name %><p>
-  <p>Body: <%= reply.body %></p><hr>
+   <div class="card-header mb-3">
+    
+  <p><%= reply.body %></p>
+   <span class="font-italic">- <%= reply.user.email %><span>
+    </div>
   <% end %>
-
+  </div>
+ 
 <%= render 'replies/form', post: @model %>
 
-
+<% if current_user == @model.user %>
 
 <div class="row justify-content-end">
 	
-<%= link_to "delete post", post_path(@model), method: :delete , class: "btn btn-danger"%>
+<%= link_to "Delete post", post_path(@model), method: :delete , class: "btn btn-outline-danger"%>
 </div>
+<%end %>
 </div>
 

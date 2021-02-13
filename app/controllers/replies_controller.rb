@@ -15,15 +15,15 @@ class RepliesController < ApplicationController
      load_post
 
   	@reply = @post.replies.build(reply_params)
-
+     @reply.user_id = current_user.id
+     
   	  if @reply.save
         respond_to do |format|
-      format.js { render 'posts/show.js.erb'}
-      format.html { }
-     end
-  end
-
-  end
+         format.js { render 'posts/show.js.erb'}
+         format.html { }
+        end
+      end
+    end
 
 
   private
@@ -39,4 +39,6 @@ class RepliesController < ApplicationController
   def load_post
     @post = Post.find(params[:post_id])
   end
+  
+  
 end
