@@ -18,3 +18,8 @@
 .post-body{
   margin-bottom: 60px;
 }
+
+.img-body{
+    width: 5%;
+    border-radius: 57%;
+}
