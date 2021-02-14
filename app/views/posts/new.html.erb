@@ -5,13 +5,7 @@
 
 <div class="container">
 	
-<%= form_with model: @model do |f| %>
-<%= f.text_field :title, placeholder: "Post title here", required: true %><br>
- 
- <%= f.rich_text_area :body, placeholder: "message body" ,required: true%>
+<%= render 'form' %>
 
-  
- <%= f.submit "Create Post", class: "btn btn-outline-primary" %>
- <% end %>
 </div>
 

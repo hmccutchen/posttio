@@ -4,12 +4,19 @@
             <% @model.each do |user_post|%>
               <div class="col-lg-3 col-md-3">
                   <div class="card">
-                      
+                <%= link_to edit_post_path(user_post) do %>          
                   <div class="card-header">
                        <%= user_post.title %>
+                       <%= user_post.body %>
+                      <span class="d-flex justify-content-end font-italic"><%= user_post.created_at.time.to_date %></span>
                   </div>
+                  <% end %>
+                  <% if current_user == user_post.user %>
+                  <%= link_to "Delete post", post_path(user_post), method: :delete , class: "btn btn-outline-danger"%>
+                   <%end %>
                 </div>
              </div>
             <% end %>
     </div>
 </div>
+

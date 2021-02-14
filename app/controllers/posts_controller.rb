@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    
   end
   
   def user_posts
@@ -27,10 +28,14 @@ class PostsController < ApplicationController
   	@model = current_user.posts.new(post_params)
    if @model.save 
    	 redirect_to posts_path
-   	end
+   end
   end
 
   def update
+    @model.update(post_params)
+    if @model.save
+      redirect_to user_posts_path(current_user)
+    end
   end
 
   def destroy
